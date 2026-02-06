@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day Harsh 🌹</title>
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffe6eb,#fff5f7);
+  font-family:'Segoe UI',sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow:hidden;
+}
+
+.card{
+  position:relative;
+  background:white;
+  width:100%;
+  max-width:440px;
+  padding:30px 20px 45px;
+  border-radius:32px;
+  text-align:center;
+  box-shadow:0 25px 45px rgba(0,0,0,.15);
+}
+
+h1{
+  color:#c9184a;
+  margin-bottom:18px;
+}
+
+.puppy-img{
+  width:230px;
+  border-radius:26px;
+  margin:10px auto;
+  display:block;
+}
+
+/* Floating Roses */
+.rose{
+  position:absolute;
+  font-size:44px;
+  cursor:pointer;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-16px); }
+}
+
+/* Second Page */
+.second-page{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ffccd5,#fff0f3);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  z-index:20;
+}
+
+.second-content{
+  background:white;
+  padding:30px;
+  border-radius:30px;
+  max-width:400px;
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+  animation:fadeIn .6s ease;
+}
+
+.second-content h2{
+  color:#c9184a;
+  margin-bottom:15px;
+}
+
+.btn{
+  margin-top:20px;
+  padding:10px 28px;
+  border:none;
+  border-radius:22px;
+  background:#c9184a;
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.btn:hover{
+  background:#a4133c;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(.8);}
+  to{opacity:1; transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Rose Day Harsh 🌹</h1>
+
+  <!-- Make sure puppy.jpeg is in same folder -->
+  <img src="puppy.jpeg" class="puppy-img" alt="Puppy">
+
+  <!-- ROSES -->
+  <div class="rose" style="top:-18px; left:30px;">🌹</div>
+  <div class="rose" style="top:-18px; right:30px;">🌹</div>
+  <div class="rose" style="top:95px; left:-18px;">🌹</div>
+  <div class="rose" style="top:95px; right:-18px;">🌹</div>
+  <div class="rose" style="bottom:100px; left:10px;">🌹</div>
+  <div class="rose" style="bottom:100px; right:10px;">🌹</div>
+  <div class="rose" style="bottom:-18px; left:80px;">🌹</div>
+  <div class="rose" style="bottom:-18px; right:80px;">🌹</div>
+  <div class="rose" style="top:40%; left:-22px;">🌹</div>
+</div>
+
+<!-- SECOND PAGE -->
+<div class="second-page" id="secondPage">
+  <div class="second-content">
+    <h2>Just For You 💌</h2>
+    <p id="loveText"></p>
+    <button class="btn" onclick="goBack()">Go Back 🌹</button>
+  </div>
+</div>
+
+<script>
+const messages=[
+"You feel like peace in a world that never stops being loud.",
+"With you, silence doesn’t feel empty. It feels safe.",
+"I don’t need perfect days, I just need days with you.",
+"You walked in quietly, and somehow became my loudest happiness.",
+"Your presence fixes parts of me I never spoke about.",
+"Loving you feels less like effort and more like instinct.",
+"Some hearts feel like home. Yours is mine.",
+"Every rose reminds me why I choose you.",
+"If love had a feeling, it would feel like you."
+];
+
+const loveText=document.getElementById("loveText");
+const secondPage=document.getElementById("secondPage");
+
+document.querySelectorAll(".rose").forEach(r=>{
+  r.onclick=()=>{
+    loveText.innerText=messages[Math.floor(Math.random()*messages.length)];
+    secondPage.style.display="flex";
+  };
+});
+
+function goBack(){
+  secondPage.style.display="none";
+}
+</script>
+
+</body>
+</html>
